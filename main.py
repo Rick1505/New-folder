@@ -7,9 +7,6 @@ from wtforms.validators import DataRequired, URL
 from datetime import date
 import smtplib
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 my_email = os.environ.get("EMAIL")
 my_email = os.environ.get("PASSWORD")
