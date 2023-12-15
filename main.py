@@ -6,8 +6,13 @@ from wtforms import StringField, SubmitField, EmailField, TextAreaField
 from wtforms.validators import DataRequired, URL
 from datetime import date
 import smtplib
+import os
+from dotenv import load_dotenv
 
-my_email = "rickkleinjan.rk@gmail.com"
+load_dotenv()
+
+my_email = os.environ.get("EMAIL")
+my_email = os.environ.get("PASSWORD")
 my_password = "wpac oblp zjgw zmqr"
 
 app = Flask(__name__)
@@ -15,7 +20,7 @@ app = Flask(__name__)
 
 
 # SET UP A ENV SECRET KEY
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("FLASK_KEY")
 Bootstrap5(app)
 
 class ContactForm(FlaskForm):
@@ -75,4 +80,4 @@ def countdown():
     return render_template("countdown.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
