@@ -73,7 +73,7 @@ def store():
 
 @app.route("/testimonial")
 def testimonial():
-    return render_template("testimonial.fhtml")
+    return render_template("testimonial.html")
 
 @app.route("/countdown")
 def countdown():
